@@ -17,14 +17,26 @@ function register(req, res) {
     .insert(user)
     .then(ids => {
       const id = ids[0];
-      const token = generateToken({ username: user.username });
       return res.status(201).json({ newUserId: id });
     })
-    .catch(err => console.log(err));
+    .catch(err => res.status(500).json({ Error: "No se pudo registrar!" }));
 }
 
 function login(req, res) {
-  // implement user login
+  const credentials = req.body;
+  db("users")
+    .where({ username: credentials.username })
+    .first()
+    .then(user => {
+      if (user && bcrypt.compareSync(credentials.password, user.password)) {
+        const token = generateToken({ username: user.username });
+        return res.status(200).json({ Bienvenido: user.username, token });
+      }
+      return res.status(401).json({ Mensaje: "No podrás pasar!" });
+    })
+    .catch(err =>
+      res.status(500).json({ Error: "No se pudo iniciar sesión!" })
+    );
 }
 
 function getJokes(req, res) {
