@@ -70,4 +70,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export default App;
+export default withRouter(App);
