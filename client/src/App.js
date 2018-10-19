@@ -8,6 +8,11 @@ import Login from "./components/Login.js";
 import Register from "./components/Register.js";
 
 class App extends Component {
+  signOut = () => {
+    localStorage.removeItem('jwt')
+    this.props.history.push('/')
+  }
+  
   render() {
     return (
       <div className="App">
