@@ -1,4 +1,6 @@
-# Pushing you Onward with your knowledge of Authentication.
+# 0102_lsw13e_sprint_challenge_authentication
+
+## Pushing you Onward with your knowledge of Authentication.
 
 - **DISCLAIMER** Authentication is a subject that many people spend a large amount time throughout their careers obtaining knowledge over. This is not something we expect you to have a mastery over, rather, we're preparing you to be able have an intelligent conversation about the subject.
 
